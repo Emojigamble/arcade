@@ -28,7 +28,7 @@ const Menu: React.FC = () => {
         <></>
       )}
       <p className="font-serif italic max-w-2xl my-6">
-        A fun collection of traditional paper games like TicTacToe, 4wins, and
+        A fun collection of traditional paper games like TicTacToe, connect4, and
         Battleship, but <b>instead of using X and O, you play with emojis</b>.
         Each emoji has either a passive or active ability, which can be used
         during or at the end of each game. <br />
@@ -52,13 +52,13 @@ const Menu: React.FC = () => {
           <MenuButton
             ping={<GreenPing />}
             bold={true}
-            title="⛵️ Battleship"
+            title="🏆 connect4"
             className="md:col-span-2"
           />
           <MenuButton
             ping={<GreenPing />}
             bold={true}
-            title="🏆 4wins"
+            title="⛵️ Battleship"
             className="md:col-span-2"
           />
           <MenuButton

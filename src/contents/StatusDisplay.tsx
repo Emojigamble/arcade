@@ -11,7 +11,7 @@ const StatusDisplay: React.FC<StatusDisplayProps> = (props) => {
     <div className="min-h-screen flex">
       <div className="mx-auto my-auto flex-row justify-center text-center">
         <div className="mb-5">
-          <Brand centered={true} />
+          <Brand large={true} centered={true} />
         </div>
         <div className="mb-5">{props.icon}</div>
         <div>{props.message}</div>
