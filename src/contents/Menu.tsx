@@ -34,7 +34,7 @@ const Menu: React.FC = () => {
         during or at the end of each game. <br />
         Have fun! <span className="not-italic">🤓😜😎</span>
       </p>
-      <div className="mt-12" style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}>
+      <div className="mt-12 select-none" style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}>
         <pre
           className="mb-2 ml-5 select-none cursor-default"
           style={{ fontFamily: "monospace, 'Segoe UI Emoji'" }}
@@ -73,7 +73,7 @@ const Menu: React.FC = () => {
           />
         </div>
       </div>
-      <div className="mt-8" style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}>
+      <div className="mt-8 select-none" style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}>
         <pre
           className="mb-2 ml-5 select-none cursor-default"
           style={{ fontFamily: "monospace, 'Segoe UI Emoji'" }}
@@ -88,7 +88,7 @@ const Menu: React.FC = () => {
           />
         </div>
       </div>
-      <div className="flex">
+      <div className="flex select-none">
         <button onClick={SignOut} className="mb-8 mt-12 mx-auto text-gray-500">
           Sign Out
         </button>

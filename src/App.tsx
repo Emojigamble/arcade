@@ -87,13 +87,13 @@ function App() {
                         message={
                             <div className="-mt-1 flex-row">
                                 <button
-                                    className="text-gray-600 select-none flex mx-auto px-3 py-2 rounded hover:shadow-md hover:bg-white active:shadow-sm transition duration-100"
+                                    className="text-gray-600 dark:text-gray-300 select-none flex mx-auto px-3 py-2 rounded hover:shadow-md hover:bg-white dark:hover:bg-gray-900 active:shadow-sm transition duration-100"
                                     onClick={GoogleSignIn}
                                 >
                                     <IoLogoGoogle className="my-auto mr-2"/> Sign in with Google
                                 </button>
                                 <button
-                                    className="text-gray-600 select-none group flex mx-auto px-3 py-2 rounded hover:shadow-md hover:bg-white active:shadow-sm transition duration-100"
+                                    className="text-gray-600 dark:text-gray-300 select-none group flex mx-auto px-3 py-2 rounded hover:shadow-md hover:bg-white dark:hover:bg-gray-900 active:shadow-sm transition duration-100"
                                     onClick={AnonymousSignIn}
                                 >
                                     <p>
