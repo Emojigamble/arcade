@@ -15,7 +15,7 @@ const MenuButton: React.FC<MenuButtonProps> = (props) => {
       <Link to={props.link ? props.link : "/"}>
         <div
           className={
-            "m-1 px-2 py-4 shadow-sm hover:shadow-md bg-white dark:bg-gray-900 cursor-pointer transition duration-200 flex rounded-lg " +
+            "px-2 py-4 bg-white dark:bg-gray-800 border-1.5 border-transparent dark:hover:border-orange-500 border-transparent dark:hover:ring ring-opacity-50 ring-orange-500 cursor-pointer transition duration-50 flex rounded-lg hover:shadow-md " +
             props.className
           }
         >

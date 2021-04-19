@@ -63,7 +63,7 @@ function App() {
     }, []);
 
     return (
-        <div className="bg-warmGray-100 dark:bg-gray-800 dark:text-white h-full">
+        <div className="bg-warmGray-100 dark:bg-gray-900 dark:text-white min-h-screen">
             <Router>
                 {loading ? (
                     <StatusDisplay
@@ -72,9 +72,10 @@ function App() {
                     />
                 ) : connected ? (
                     <>
-                        <Navbar/>
+
                         <Switch>
                             <Route path="/tictactoe">
+                                <Navbar/>
                                 <TicTacToe socket={socket!}/>
                             </Route>
                             <Route path="/">

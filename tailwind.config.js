@@ -1,16 +1,20 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors")
 
 module.exports = {
-  purge: [],
-  darkMode: "media", // or 'media' or 'class'
+  //mode: 'jit',
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     colors: colors,
-    extend: {},
+    extend: {
+      borderWidth: {
+        '1.5': '1.5px'
+      }
+    },
   },
   variants: {
     extend: {
-      backgroundColor: ['active'],
-      boxShadow: ['active']
+      ringWidth: ['hover', 'dark']
     },
   },
   plugins: [],

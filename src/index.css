@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    ::selection {
+        background: #1444ff; /* WebKit/Blink Browsers */
+        color: white;
+    }
+
+    ::-moz-selection {
+        background: #1444ff; /* Gecko Browsers */
+        color: white;
+    }
+
+    svg {
+        display: inline;
+    }
+}
+
+@layer utilities {
+    .border-transparent {
+        border-color: transparent;
+    }
+}
