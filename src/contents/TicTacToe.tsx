@@ -1,5 +1,6 @@
 import React from "react";
 import { Socket } from "socket.io-client";
+import Cursor from "../components/Cursor";
 import firebase from "../firebase";
 
 interface TicTacToeProps {
@@ -33,14 +34,15 @@ class TicTacToe extends React.Component<TicTacToeProps, TicTacToeState> {
   render() {
     return (
       <div className="min-h-screen">
+        <Cursor/>
         <h1>🎲 TicTacToe</h1>
 
-        <div className="grid text-black grid-cols-3 w-64 h-64 mr-auto">
+        <div className="grid w-64 h-64 grid-cols-3 mr-auto text-black">
           {[...Array(9)].map((x, i) => (
             <div
               key={i}
               onClick={this.submitMove.bind(this, i)}
-              className="bg-white m-2"
+              className="m-2 bg-white tile"
             >
               {i}
             </div>

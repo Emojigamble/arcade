@@ -4,99 +4,107 @@ import BluePing from "../components/icons/BluePing";
 import GreenPing from "../components/icons/GreenPing";
 import TealPing from "../components/icons/TealPing";
 import MenuButton from "../components/MenuButton";
-import {SignOut, auth} from "../firebase";
-import {HiOutlineLogout} from "react-icons/hi";
+import { SignOut, auth } from "../firebase";
+import { HiOutlineLogout } from "react-icons/hi";
+import Cursor from "../components/Cursor";
 
 const Menu: React.FC = () => {
-    return (
-        <div className="p-4 mx-auto sm:p-8 min-h-screen max-w-3xl">
-            <p className="mt-24 select-none text-2xl font-caveat text-gray-500">
-                Funzel Environment presents
-            </p>
-            <h1
-                className="text-3xl font-bold font-mono select-none cursor-default"
-                style={{fontFamily: "Inter, 'Segoe UI Emoji'"}}
-            >
-                Emoji<span className="text-orange-500">gamble</span>
-            </h1>
-            {auth.currentUser?.isAnonymous ? (
-                <div
-                    className="select-none cursor-default bg-amber-200 border-l-4 border-amber-400 text-amber-700 mt-5 px-4 py-2">
-                    <p>
-                        <b>You're signed in anonymously.</b> Progress won't be saved.
-                    </p>
-                </div>
-            ) : (
-                <></>
-            )}
-            <p className="font-serif italic max-w-2xl my-6">
-                A collection of traditional paper games like TicTacToe, connect4, and
-                Battleship, but <b>instead of using X and O, you play with emojis</b>.
-                Each emoji has either a passive or active ability, which can be used
-                during or at the end of each game. <br/>
-                Have fun! <span className="not-italic">🕹</span>
-            </p>
-            <div className="mt-12 select-none" style={{fontFamily: "Inter, 'Segoe UI Emoji'"}}>
+  return (
+    <div className="max-w-3xl min-h-screen p-4 mx-auto sm:p-8">
+      <Cursor/>
+      <p className="mt-24 text-2xl text-gray-500 select-text font-caveat">
+        Funzel Environment presents
+      </p>
+      <h1
+        className="font-mono text-3xl font-bold"
+        style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
+      >
+        Emoji<span className="text-orange-500">gamble</span>
+      </h1>
+      <p className="block max-w-2xl my-6 font-serif italic select-text">
+        A collection of traditional paper games like TicTacToe, connect4, and
+        Battleship, but <b>instead of using X and O, you play with emojis</b>.
+        Each emoji has either a passive or active ability, which can be used
+        during or at the end of each game. <br />
+        Have fun! <span className="not-italic">🕹</span>
+      </p>
+      {auth.currentUser?.isAnonymous ? (
+        <div className="px-4 py-2 mt-5 border-l-8 rounded-lg cursor-default select-text bg-amber-200 dark:bg-amber-300 border-amber-400 dark:border-amber-500 text-amber-700">
+          <p>
+            <b>You're signed in anonymously.</b> Progress won't be saved.
+          </p>
+        </div>
+      ) : (
+        <></>
+      )}
+      <div
+        className="mt-8"
+        style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
+      >
         <pre
-            className="mb-2 ml-5 select-none cursor-default"
-            style={{fontFamily: "monospace, 'Segoe UI Emoji'"}}
+          className="mb-2 ml-5"
+          style={{ fontFamily: "monospace, 'Segoe UI Emoji'" }}
         >
           🎙 PUBLIC GAMES
         </pre>
-                <div className="grid grid-cols-1 sm:grid-cols-6 max-w-3xl gap-2">
-                    <MenuButton
-                        ping={<GreenPing/>}
-                        bold={true}
-                        title="🎲 TicTacToe"
-                        link="/tictactoe"
-                        className="sm:col-span-2"
-                    />
-                    <MenuButton
-                        ping={<GreenPing/>}
-                        bold={true}
-                        title="🏆 connect4"
-                        className="sm:col-span-2"
-                    />
-                    <MenuButton
-                        ping={<GreenPing/>}
-                        bold={true}
-                        title="⛵️ Battleship"
-                        className="sm:col-span-2"
-                    />
-                    <MenuButton
-                        ping={<TealPing/>}
-                        title="👁 Spectate"
-                        className="sm:col-span-3"
-                    />
-                    <MenuButton
-                        ping={<BluePing/>}
-                        title="🙈 Random game"
-                        className="sm:col-span-3"
-                    />
-                </div>
-            </div>
-            <div className="mt-8 select-none" style={{fontFamily: "Inter, 'Segoe UI Emoji'"}}>
+        <div className="grid max-w-3xl grid-cols-1 gap-2 sm:grid-cols-6">
+          <MenuButton
+            ping={<GreenPing />}
+            bold={true}
+            title="🎲 TicTacToe"
+            link="/tictactoe"
+            className="sm:col-span-2"
+          />
+          <MenuButton
+            ping={<GreenPing />}
+            bold={true}
+            title="🏆 connect4"
+            className="sm:col-span-2"
+          />
+          <MenuButton
+            ping={<GreenPing />}
+            bold={true}
+            title="⛵️ Battleship"
+            className="sm:col-span-2"
+          />
+          <MenuButton
+            ping={<TealPing />}
+            title="👁 Spectate"
+            className="sm:col-span-3"
+          />
+          <MenuButton
+            ping={<BluePing />}
+            title="🙈 Random game"
+            className="sm:col-span-3"
+          />
+        </div>
+      </div>
+      <div
+        className="mt-8"
+        style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
+      >
         <pre
-            className="mb-2 ml-5 select-none cursor-default"
-            style={{fontFamily: "monospace, 'Segoe UI Emoji'"}}
+          className="mb-2 ml-5"
+          style={{ fontFamily: "monospace, 'Segoe UI Emoji'" }}
         >
           🎭 PRIVATE GAMES
         </pre>
-                <div className="max-w-3xl">
-                    <MenuButton
-                        ping={<AmberPing/>}
-                        bold={true}
-                        title="🌳 New private Game"
-                    />
-                </div>
-            </div>
-            <div className="flex select-none mb-12 mt-16">
-                <button onClick={SignOut} className="mx-auto text-gray-500">
-                    <HiOutlineLogout className={"mr-0.5 mt-[1px] align-text-top"}/> Sign Out
-                </button>
-            </div>
+        <div className="max-w-3xl">
+          <MenuButton
+            ping={<AmberPing />}
+            bold={true}
+            title="🌳 New private Game"
+          />
         </div>
-    );
+      </div>
+      <div className="flex mt-16 mb-12">
+        <button onClick={SignOut} className="mx-auto text-gray-500 cursor-none">
+          <HiOutlineLogout className={"mr-0.5 mt-[1px] align-text-top"} /> Sign
+          Out
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default Menu;

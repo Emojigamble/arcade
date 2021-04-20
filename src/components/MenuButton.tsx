@@ -12,18 +12,18 @@ interface MenuButtonProps {
 const MenuButton: React.FC<MenuButtonProps> = (props) => {
   return (
     <div className={props.className}>
-      <Link to={props.link ? props.link : "/"}>
-        <div
+      <Link to={props.link ? props.link : "/"} className="cursor-none">
+        <button
           className={
-            "px-2 py-4 bg-white dark:bg-gray-800 border-1.5 border-transparent dark:hover:border-orange-500 border-transparent dark:hover:ring ring-opacity-50 ring-orange-500 cursor-pointer transition duration-50 flex rounded-lg hover:shadow-md " +
+            "w-full cursor-none px-2 py-4 bg-white dark:bg-gray-800 border-1.5 border-transparent dark:hover:border-orange-500 border-opacity-30 border-transparent dark:hover:ring ring-opacity-50 ring-orange-500 transition duration-50 flex rounded-lg hover:shadow-md " +
             props.className
           }
         >
-          <div className="my-auto sm:mb-auto ml-3 mr-2">{props.ping}</div>
+          <div className="my-auto ml-3 mr-2 sm:mb-auto">{props.ping}</div>
           <div className="ml-1">
             <p className={props.bold ? "font-bold" : ""}>{props.title}</p>
           </div>
-        </div>
+        </button>
       </Link>
     </div>
   );

@@ -3,23 +3,47 @@
 @tailwind utilities;
 
 @layer components {
-    ::selection {
-        background: #1444ff; /* WebKit/Blink Browsers */
-        color: white;
-    }
+  ::selection {
+    background: #1444ff; /* WebKit/Blink Browsers */
+    color: white;
+  }
 
-    ::-moz-selection {
-        background: #1444ff; /* Gecko Browsers */
-        color: white;
-    }
+  ::-moz-selection {
+    background: #1444ff; /* Gecko Browsers */
+    color: white;
+  }
 
-    svg {
-        display: inline;
-    }
+  svg {
+    display: inline;
+  }
 }
 
 @layer utilities {
-    .border-transparent {
-        border-color: transparent;
-    }
+  .border-transparent {
+    border-color: transparent;
+  }
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .select-text {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  .cursor-none {
+    cursor: none;
+  }
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.custom-cursor>circle {
+  @apply text-gray-700 fill-current dark:text-gray-200;
 }
