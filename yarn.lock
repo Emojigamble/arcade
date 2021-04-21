@@ -5875,6 +5875,13 @@ fsevents@^2.1.2, fsevents@^2.1.3, fsevents@~2.3.1:
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
 
+fullscreen-react@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/fullscreen-react/-/fullscreen-react-1.0.4.tgz#243f3c61814fc8257b78131ff8c923b8aa0edf8d"
+  integrity sha512-dzyOmxE0my0mGACI9tk6qK95QhKZ/sEhRWeWlu+Sz6A8yP45mjy1p0fevH/0+yoENszq69iMI7jB0Aaxn8bGVA==
+  dependencies:
+    screenfull "^5.0.2"
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -10842,6 +10849,11 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.6"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+screenfull@^5.0.2:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-5.1.0.tgz#85c13c70f4ead4c1b8a935c70010dfdcd2c0e5c8"
+  integrity sha512-dYaNuOdzr+kc6J6CFcBrzkLCfyGcMg+gWkJ8us93IQ7y1cevhQAugFsaCdMHb6lw8KV3xPzSxzH7zM1dQap9mA==
 
 select-hose@^2.0.0:
   version "2.0.0"

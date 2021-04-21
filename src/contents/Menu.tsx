@@ -7,6 +7,7 @@ import MenuButton from "../components/MenuButton";
 import { SignOut, auth } from "../firebase";
 import { HiOutlineLogout } from "react-icons/hi";
 import Cursor from "../components/Cursor";
+import FullscreenToggle from "../components/FullscreenToggle";
 
 const Menu: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const Menu: React.FC = () => {
         className="font-mono text-3xl font-bold"
         style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
       >
-        Emoji<span className="text-orange-500">gamble</span>
+        Emoji<span className="text-orange-500">gamble</span> <FullscreenToggle/>
       </h1>
       <p className="block max-w-2xl my-6 font-serif italic select-text">
         A collection of traditional paper games like TicTacToe, connect4, and
@@ -29,7 +30,7 @@ const Menu: React.FC = () => {
         Have fun! <span className="not-italic">🕹</span>
       </p>
       {auth.currentUser?.isAnonymous ? (
-        <div className="px-4 py-2 mt-5 border-l-8 rounded-lg cursor-default select-text bg-amber-200 dark:bg-amber-300 border-amber-400 dark:border-amber-500 text-amber-700">
+        <div className="px-4 py-2 mt-5 border-l-8 rounded-lg select-text bg-amber-200 dark:bg-amber-300 border-amber-400 dark:border-amber-500 text-amber-700">
           <p>
             <b>You're signed in anonymously.</b> Progress won't be saved.
           </p>
@@ -42,8 +43,7 @@ const Menu: React.FC = () => {
         style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
       >
         <pre
-          className="mb-2 ml-5"
-          style={{ fontFamily: "monospace, 'Segoe UI Emoji'" }}
+          className="mb-2 ml-5 font-mono"
         >
           🎙 PUBLIC GAMES
         </pre>
@@ -84,8 +84,7 @@ const Menu: React.FC = () => {
         style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
       >
         <pre
-          className="mb-2 ml-5"
-          style={{ fontFamily: "monospace, 'Segoe UI Emoji'" }}
+          className="mb-2 ml-5 font-mono"
         >
           🎭 PRIVATE GAMES
         </pre>

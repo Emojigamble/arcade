@@ -3,6 +3,7 @@ import firebase, { GoogleSignIn } from "../firebase";
 import Brand from "./Brand";
 import { Link } from "react-router-dom";
 import { IoLogoGoogle } from "react-icons/io5";
+import FullscreenToggle from "./FullscreenToggle";
 
 const Navbar: React.FC = () => {
   const [user, setUser] = useState(null);
@@ -12,18 +13,18 @@ const Navbar: React.FC = () => {
   });
 
   return (
-    <div className="flex justify-between px-8 py-5 bg-white shadow-lg dark:bg-gray-900">
+    <div className="flex justify-between px-8 py-5">
       <Link to="/">
         <Brand />
       </Link>
 
       {user && !user!["isAnonymous"] ? (
-        <p className="font-caveat text-2xl my-auto">
+        <p className="my-auto text-2xl font-caveat">
           Welcome, {user!["displayName"]}
         </p>
       ) : (
         <button
-          className="text-gray-600 select-none flex my-1 px-3 py-2 rounded hover:bg-gray-100 active:bg-gray-300 transition duration-100"
+          className="flex px-3 py-2 my-1 text-gray-600 transition duration-100 rounded select-none hover:bg-gray-100 active:bg-gray-300"
           onClick={GoogleSignIn}
         >
           <IoLogoGoogle className="my-auto mr-2" /> Sign in with Google
