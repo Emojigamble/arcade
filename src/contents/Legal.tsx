@@ -13,7 +13,7 @@ export default function Legal({ sitenotice, privacypolicy }) {
         <meta name="robots" content="noindex"></meta>
       </MetaTags>
 
-      <article className="px-5 mx-auto mt-20 mb-20 prose prose-amber">
+      <article className="px-5 mx-auto mt-20 mb-20 prose bg-warmGray-100 prose-amber">
         {sitenotice && (
           <>
             <h1>Site Notice</h1>
