@@ -3,7 +3,6 @@ import firebase, { GoogleSignIn } from "../firebase";
 import Brand from "./Brand";
 import { Link } from "react-router-dom";
 import { IoLogoGoogle } from "react-icons/io5";
-import FullscreenToggle from "./FullscreenToggle";
 
 const Navbar: React.FC = () => {
   const [user, setUser] = useState(null);

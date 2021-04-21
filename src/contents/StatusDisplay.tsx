@@ -9,13 +9,16 @@ interface StatusDisplayProps {
 
 const StatusDisplay: React.FC<StatusDisplayProps> = (props) => {
   return (
-    <div className="flex min-h-screen">
-      <div className="flex-row justify-center mx-auto my-auto text-center">
-        <div className="mb-5">
-          <Brand large={true} centered={props.centered === false ? false : true} />
-        </div>
-        <div className="mb-5">{props.icon}</div>
-        <div>{props.message}</div>
+    <div className="mx-auto my-auto">
+      <div>
+      <div className="mb-5">
+        <Brand
+          large={true}
+          centered={props.centered === false ? false : true}
+        />
+      </div>
+      <div className="mb-5">{props.icon}</div>
+      <div className="select-text">{props.message}</div>
       </div>
     </div>
   );

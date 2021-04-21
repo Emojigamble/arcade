@@ -2,21 +2,24 @@ import React, { createContext, useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Menu from "./contents/Menu";
 import io, { Socket } from "socket.io-client";
-import { auth, GoogleSignIn, AnonymousSignIn } from "./firebase";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { auth } from "./firebase";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import TicTacToe from "./contents/TicTacToe";
 import StatusDisplay from "./contents/StatusDisplay";
-import RedPing from "./components/icons/RedPing";
-import GreenPing from "./components/icons/GreenPing";
 import AmberPing from "./components/icons/AmberPing";
 import BluePing from "./components/icons/BluePing";
 import TextBanner from "./components/TextBanner";
-import { IoLogoGoogle } from "react-icons/io5";
-import { HiOutlineUser } from "react-icons/hi";
 import Cursor from "./components/Cursor";
 import Fullscreen from "fullscreen-react";
+import LoginStatus from "./components/status/Login";
+import ConnectivityError from "./components/status/ConnectivityError";
+import Connecting from "./components/status/Connecting";
+import Legal from "./contents/Legal";
 
-export const ArcadeContext = createContext({isFullscreen: false, setFullscreen: (value) => {}});
+export const ArcadeContext = createContext({
+  isFullscreen: false,
+  setFullscreen: (value) => {},
+});
 
 function App() {
   let [loading, setLoading] = useState<boolean>(true);
@@ -72,71 +75,62 @@ function App() {
   return (
     <ArcadeContext.Provider value={{ isFullscreen, setFullscreen }}>
       <Fullscreen isEnter={isFullscreen} onChange={setFullscreen}>
-        <div className="min-h-screen select-none bg-warmGray-100 dark:bg-gray-900 dark:text-white cursor-none">
+        <div className="select-none bg-warmGray-100 dark:bg-gray-900 dark:text-white cursor-none">
           <Router>
-            {loading ? (
-              <StatusDisplay
-                icon={<BluePing center={true} />}
-                message={<TextBanner title="Loading" />}
-              />
-            ) : connected ? (
-              <>
-                <Switch>
-                  <Route path="/tictactoe">
-                    <Navbar />
-                    <TicTacToe socket={socket!} />
-                  </Route>
-                  <Route path="/">
-                    <Menu />
-                  </Route>
-                </Switch>
-              </>
-            ) : !auth.currentUser ? (
-              <StatusDisplay
-                centered={false}
-                message={
+            <div className="flex min-h-screen">
+              <Switch>
+                <Route path="/sitenotice"><Legal sitenotice={true} privacypolicy={false}/></Route>
+                <Route path="/privacypolicy"><Legal sitenotice={false} privacypolicy={true}/></Route>
+                {connected && (
                   <>
-                    <Cursor />
-                    <div className="flex-row -mt-1">
-                      <button
-                        className="flex px-3 py-2 text-gray-600 transition duration-100 rounded select-none cursor-none dark:text-gray-200"
-                        onClick={GoogleSignIn}
-                      >
-                        <IoLogoGoogle className="my-auto ml-0.5 mr-5" /> Sign in
-                        with Google
-                      </button>
-                      <button
-                        className="flex px-3 py-2 text-gray-600 transition duration-100 rounded select-none cursor-none dark:text-gray-200"
-                        onClick={AnonymousSignIn}
-                      >
-                        <HiOutlineUser className="my-auto ml-0.5 mr-5" />{" "}
-                        Continue Anonymous
-                      </button>
-                    </div>
+                    <Route path="/tictactoe">
+                      <div className="w-screen">
+                      <Navbar />
+                      <TicTacToe socket={socket!} />
+                      </div>
+                    </Route>
+                    <Route exact path="/">
+                      <Menu />
+                    </Route>
                   </>
-                }
-              />
-            ) : connectionError ? (
-              <StatusDisplay
-                icon={<RedPing center={true} />}
-                message={
-                  <TextBanner
-                    title="Connectivity Error"
-                    message="Please make sure you're online"
-                  />
-                }
-              />
-            ) : (
-              <StatusDisplay
-                icon={<GreenPing center={true} />}
-                message={
-                  <TextBanner
-                    title="Connecting"
-                    message="Establishing a secured connection"
-                  />
-                }
-              />
-            )}
+                )}
+                <Route path="/">
+                  {process.env.REACT_APP_PRE === "true" ? (
+                    <>
+                      <Cursor />
+                      <StatusDisplay
+                        icon={<AmberPing center={true} />}
+                        message={
+                          <TextBanner
+                            title="Coming soon!"
+                            message="Beta program on the way"
+                          />
+                        }
+                      />
+                    </>
+                  ) : loading ? (
+                    <>
+                      <Cursor />
+                      <StatusDisplay
+                        icon={<BluePing center={true} />}
+                        message={<TextBanner title="Loading" />}
+                      />
+                    </>
+                  ) : !auth.currentUser ? (
+                    <LoginStatus />
+                  ) : connectionError ? (
+                    <ConnectivityError />
+                  ) : (
+                    <Connecting />
+                  )}
+                </Route>
+              </Switch>
+            </div>
+            <div className="flex justify-center text-gray-500 transform -translate-y-10">
+              <Link to="/sitenotice">Site Notice</Link>
+              <span className="mx-1">{"|"}</span>
+              <Link to="/privacypolicy">Privacy Policy</Link>
+            </div>
           </Router>
         </div>
       </Fullscreen>
