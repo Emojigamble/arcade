@@ -17,7 +17,7 @@ export default function Cursor() {
     return (
       <>
         <CustomCursor
-          targets={["button", "a", ".tile"]}
+          targets={["button", "a", "input", ".tile"]}
           customClass="custom-cursor"
           dimensions={30}
           fill="#FFF"

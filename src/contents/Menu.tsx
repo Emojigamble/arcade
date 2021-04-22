@@ -17,8 +17,7 @@ const Menu: React.FC = () => {
         Funzel Environment presents
       </p>
       <h1
-        className="font-mono text-3xl font-bold"
-        style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
+        className="font-sans text-3xl font-bold"
       >
         Emoji<span className="text-orange-500">gamble</span> <FullscreenToggle/>
       </h1>
@@ -40,7 +39,6 @@ const Menu: React.FC = () => {
       )}
       <div
         className="mt-8"
-        style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
       >
         <pre
           className="mb-2 ml-5 font-mono"
@@ -81,7 +79,6 @@ const Menu: React.FC = () => {
       </div>
       <div
         className="mt-8"
-        style={{ fontFamily: "Inter, 'Segoe UI Emoji'" }}
       >
         <pre
           className="mb-2 ml-5 font-mono"
